@@ -11171,7 +11171,7 @@
 			var index = el.value.length,
 			char = e.key;
 
-			if(e.keyCode > 46){
+			if(e.keyCode > 46 && !e.ctrlKey && !e.metaKey){
 				if(index >= mask.length){
 					e.preventDefault();
 					e.stopPropagation();
@@ -16338,7 +16338,12 @@
 					if(this.table.modules.selectRow.selectedRows.length){
 						this.table.deselectRow();
 					}else {
-						this.table.selectRow(formatterParams.rowRange);
+						let rowRange = formatterParams.rowRange;
+						if(typeof rowRange == "function"){
+							this.table.selectRow(rowRange.call(this.table));
+						} else {
+							this.table.selectRow(rowRange);
+						}
 					}
 				});
 
