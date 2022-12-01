@@ -48,7 +48,12 @@ export default function(cell, formatterParams, onRendered){
 				if(this.table.modules.selectRow.selectedRows.length){
 					this.table.deselectRow();
 				}else {
-					this.table.selectRow(formatterParams.rowRange);
+					let rowRange = formatterParams.rowRange;
+					if(typeof rowRange == "function"){
+						this.table.selectRow(rowRange.call(this.table));
+					} else {
+						this.table.selectRow(rowRange);
+					}
 				}
 			});
 
