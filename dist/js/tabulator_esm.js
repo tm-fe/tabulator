@@ -1,4 +1,4 @@
-/* Tabulator v5.4.3 (c) Oliver Folkerd 2022 */
+/* Tabulator v5.4.4 (c) Oliver Folkerd 2022 */
 class CoreFeature{
 
 	constructor(table){
@@ -4279,7 +4279,7 @@ class DataTree extends Module{
 
 		if(force){
 			rows = this.table.rowManager.getRows();
-			
+
 			rows.forEach((row) => {
 				this.reinitializeRowChildren(row);
 			});
@@ -4291,7 +4291,7 @@ class DataTree extends Module{
 
 		this.elementField = this.table.options.dataTreeElementColumn || (firstCol ? firstCol.field : false);
 	}
-	
+
 	getRowChildren(row){
 		return this.getTreeChildren(row, true);
 	}
@@ -4341,7 +4341,7 @@ class DataTree extends Module{
 
 		row.modules.dataTree = {
 			index: row.modules.dataTree ? row.modules.dataTree.index : 0,
-			open: children ? (row.modules.dataTree ? row.modules.dataTree.open : this.startOpen(row.getComponent(), 0)) : false,
+			open: children ? this.startOpen(row.getComponent(), 0) : false,
 			controlEl: row.modules.dataTree && children ? row.modules.dataTree.controlEl : false,
 			branchEl: row.modules.dataTree && children ? row.modules.dataTree.branchEl : false,
 			parent: row.modules.dataTree ? row.modules.dataTree.parent : false,

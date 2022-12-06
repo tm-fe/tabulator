@@ -1,4 +1,4 @@
-/* Tabulator v5.4.3 (c) Oliver Folkerd 2022 */
+/* Tabulator v5.4.4 (c) Oliver Folkerd 2022 */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -10190,7 +10190,7 @@
 
 			if(force){
 				rows = this.table.rowManager.getRows();
-				
+
 				rows.forEach((row) => {
 					this.reinitializeRowChildren(row);
 				});
@@ -10202,7 +10202,7 @@
 
 			this.elementField = this.table.options.dataTreeElementColumn || (firstCol ? firstCol.field : false);
 		}
-		
+
 		getRowChildren(row){
 			return this.getTreeChildren(row, true);
 		}
@@ -10252,7 +10252,7 @@
 
 			row.modules.dataTree = {
 				index: row.modules.dataTree ? row.modules.dataTree.index : 0,
-				open: children ? (row.modules.dataTree ? row.modules.dataTree.open : this.startOpen(row.getComponent(), 0)) : false,
+				open: children ? this.startOpen(row.getComponent(), 0) : false,
 				controlEl: row.modules.dataTree && children ? row.modules.dataTree.controlEl : false,
 				branchEl: row.modules.dataTree && children ? row.modules.dataTree.branchEl : false,
 				parent: row.modules.dataTree ? row.modules.dataTree.parent : false,
